@@ -16,8 +16,6 @@ Words.prototype.count = function(phrase) {
     result[word_to_find] = word_count;
   });
   return result;
-  // increase counter, then place in new key:value hash
-  // before counting new words make sure it's not already in the result hash
 };
 
 module.exports = Words;
