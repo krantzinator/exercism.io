@@ -1,1 +1,3 @@
-{}
+{
+  "isogram_test.py::TestIsogram::test_isogram_with_duplicated_non_letter_character": true
+}
