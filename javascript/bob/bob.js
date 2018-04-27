@@ -1,22 +1,16 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-
-  var regexers = [
-    {regexp: /^\s*$/, result: "Fine. Be that way!"},
-    {regexp: /.*\!.*\..*\s{2}.*\?/, result: "Sure."},
-    {regexp: /[A-Z\s]+[^a-z]+[!?]$/, result: "Whoa, chill out!"},
-    {regexp: /^[A-Z\s]*[A-Z]+$/, result: "Whoa, chill out!"},
-    {regexp: /\?$/, result: "Sure."},
-    {regexp: /./, result: "Whatever."}
-  ];
-
-  function findResponse(phrase) {
-    return (phrase.regexp).test(input);
+  
+  if (input === input.toUpperCase() && (input.search(/[A-Z]+/) !== -1)) {
+    return 'Whoa, chill out!';
+  } else if (input[input.length - 1] === '?') {
+    return 'Sure.';
+  } else if (input.search(/\S+/) === -1) {
+    return 'Fine. Be that way!';
+  } else {
+    return 'Whatever.';
   }
-
-  return regexers.find(findResponse).result;
-
 };
 
 module.exports = Bob;
