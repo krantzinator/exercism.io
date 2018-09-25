@@ -1,1 +1,3 @@
 exercism.code-workspace
+*/.node_modules
+javascript/wordy/node_modules/
