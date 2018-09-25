@@ -5,11 +5,12 @@ var Gigasecond = function(startDate) {
 // A gigasecond is one billion (10**9) seconds.
 
 Gigasecond.prototype.date = function() {
-  var gigasecond = Math.pow(10,9);
-  var milisecondsToSeconds = 1000;
+  const gigasecond = Math.pow(10,9);
+  const milisecondsToSeconds = 1000;
 
+  // const futureDate = new Date(new Date(this.startDate).setSeconds(this.startDate.getSeconds() + gigasecond));
   var resultDate = this.startDate + (gigasecond * milisecondsToSeconds);
-
+  // return futureDate;
   return new Date(resultDate);
 };
 
