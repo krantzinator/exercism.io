@@ -41,22 +41,22 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(3);
   });
 
-  xtest('add then subtract', () => {
+  test('add then subtract', () => {
     const question = 'What is 1 plus 5 minus -2?';
     expect(new WordProblem(question).answer()).toEqual(8);
   });
 
-  xtest('subtract twice', () => {
+  test('subtract twice', () => {
     const question = 'What is 20 minus 4 minus 13?';
     expect(new WordProblem(question).answer()).toEqual(3);
   });
 
-  xtest('subtract then add', () => {
+  test('subtract then add', () => {
     const question = 'What is 17 minus 6 plus 3?';
     expect(new WordProblem(question).answer()).toEqual(14);
   });
 
-  xtest('multiply twice', () => {
+  test('multiply twice', () => {
     const question = 'What is 2 multiplied by -2 multiplied by 3?';
     expect(new WordProblem(question).answer()).toEqual(-12);
   });

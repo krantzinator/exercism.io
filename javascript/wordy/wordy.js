@@ -4,21 +4,34 @@ export class WordProblem {
   }
   answer() {
     const numbersArray = this.extractNumbers();
-    const operator = this.extractOperator();
-    if (operator === 'plus') {
-      return numbersArray.reduce((prev, curr) => {
-        const newPrev = prev + curr;
-        return newPrev;
-      }, 0);
-    } else if (operator === 'minus') {
-      return numbersArray[0] - numbersArray[1];
-    } else if (operator === 'multiplied') {
-      return numbersArray[0] * numbersArray[1];
-    } return numbersArray[0] / numbersArray[1];
+    const operators = this.extractOperators();
+    // ['plus', 'minus']
+
+    if (operators.length > 1) {
+      var returnVal = numbersArray.reduce((acc, val, i) => {
+        if (i === 0) {
+          return acc = acc + val;
+        } else if (operators[i - 1] === 'plus') {
+          return acc = acc + val;
+        } else if (operators[i - 1] === 'minus') {
+          return acc = acc - val;
+          }
+        }, 0)
+    } else {
+      if (operators[0] === 'plus') {
+        return numbersArray[0] + numbersArray[1];
+      } else if (operators[0] === 'minus') {
+        return numbersArray[0] - numbersArray[1];
+      } else if (operators[0] === 'multiplied') {
+        return numbersArray[0] * numbersArray[1];
+      } return numbersArray[0] / numbersArray[1];
+    }
+
+    return returnVal;
   }
 
-  extractOperator() {
-    return this.question.split(' ')[3];
+  extractOperators() {
+    return this.question.split(' ').filter(words => words.includes('plus') || words.includes('minus') || words.includes('multiplied') || words.includes('divided'))
   }
 
   extractNumbers() {
